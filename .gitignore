@@ -25,3 +25,7 @@ dist-ssr
 
 ## Ansible
 ansible/venv
+
+# Supabase
+!supabase/volumes/logs/
+!supabase/volumes/logs/vector.yml
