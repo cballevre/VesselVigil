@@ -1,0 +1,4 @@
+supabase:
+  hosts:
+    digital-ocean:
+      ansible_host: 167.172.160.208

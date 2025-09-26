@@ -1,0 +1,15 @@
+- name: Setup environment
+  hosts: all
+  remote_user: root
+  tasks:
+    - name: Install required packages
+      ansible.builtin.apt:
+        name: git
+        state: present
+        update_cache: yes
+    - name: Clone repository
+      ansible.builtin.git:
+        repo: 'git@github.com:cballevre/VesselVigil.git'
+        dest: /tmp/VesselVigil
+        single_branch: yes
+        version: feat/self-hosting-supabase
