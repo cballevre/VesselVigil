@@ -9,7 +9,25 @@
         update_cache: yes
     - name: Clone repository
       ansible.builtin.git:
-        repo: 'git@github.com:cballevre/VesselVigil.git'
-        dest: /tmp/VesselVigil
+        repo: 'https://github.com/cballevre/VesselVigil.git'
+        dest: /opt/VesselVigil
         single_branch: yes
         version: feat/self-hosting-supabase
+    - name: Ensure VesselVigil directory exists
+      ansible.builtin.file:
+        path: /opt/VesselVigil
+        state: directory
+        owner: root
+        group: root
+        mode: '0755'
+    - name: Copy .env template
+      ansible.builtin.template:
+        src: env.j2
+        dest: /opt/VesselVigil/.env
+        owner: root
+        group: root
+        mode: '0644'
+    - name: Ensure .env file exists
+      ansible.builtin.file:
+        path: /opt/VesselVigil/.env
+        state: file
