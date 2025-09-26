@@ -25,6 +25,7 @@ dist-ssr
 
 ## Ansible
 ansible/venv
+ansible/.vault_pass
 
 # Supabase
 !supabase/volumes/logs/

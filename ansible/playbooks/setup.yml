@@ -1,6 +1,8 @@
 - name: Setup environment
   hosts: all
   remote_user: root
+  roles:
+    - geerlingguy.docker
   tasks:
     - name: Install required packages
       ansible.builtin.apt:
@@ -31,3 +33,14 @@
       ansible.builtin.file:
         path: /opt/VesselVigil/.env
         state: file
+    - name: Pull images for Supabase
+      community.docker.docker_compose_v2_pull:
+        project_src: /opt/VesselVigil
+        files:
+          - docker-compose.production.yml
+    - name: Create and start services
+      community.docker.docker_compose_v2:
+        project_src: /opt/VesselVigil
+        files:
+          - docker-compose.production.yml
+
