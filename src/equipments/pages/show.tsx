@@ -5,6 +5,7 @@ import { useParams } from 'react-router';
 
 import { useCurrentBoat } from '@/boats/hooks/use-current-boat';
 import { AttachmentList } from '@/shared/components/attachment-list';
+import { MarkdownRender } from '@/shared/components/markdown-render';
 import { PageHeader } from '@/shared/components/page-header';
 
 const ShowEquipment = () => {
@@ -35,10 +36,6 @@ const ShowEquipment = () => {
             ? `${equipment?.data.quantity} x `
             : null}
           {equipment?.data.name}
-        </Typography.Paragraph>
-        <Typography.Paragraph>
-          <strong>{translate('equipments.form.labels.description')}: </strong>
-          {equipment?.data.description}
         </Typography.Paragraph>
         <Typography.Paragraph>
           <strong>{translate('equipments.form.labels.system')}: </strong>
@@ -103,6 +100,14 @@ const ShowEquipment = () => {
             </strong>
             {dayjs(equipment.data.warranty_end_date).format('DD/MM/YYYY')}
           </Typography.Paragraph>
+        ) : null}
+        {equipment?.data.description ? (
+          <>
+            <Typography.Title level={5}>
+              {translate('equipments.form.labels.description')}:
+            </Typography.Title>
+            <MarkdownRender content={equipment?.data.description} />
+          </>
         ) : null}
       </Card>
       <AttachmentList

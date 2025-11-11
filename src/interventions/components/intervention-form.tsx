@@ -5,6 +5,8 @@ import dayjs from 'dayjs';
 import type { FC } from 'react';
 import { useState } from 'react';
 
+import { MarkdownEditor } from '@/shared/components/markdown-editor';
+
 interface InterventionFormProps {
   formProps: any;
   handleOnFinish: (values: any) => void;
@@ -48,7 +50,7 @@ const InterventionForm: FC<InterventionFormProps> = ({
         label={translate('interventions.form.labels.description')}
         name="description"
       >
-        <Input.TextArea />
+        <MarkdownEditor />
       </Form.Item>
 
       <Form.Item

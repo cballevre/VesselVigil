@@ -4,6 +4,7 @@ import { useParams } from 'react-router';
 
 import { useCurrentBoat } from '@/boats/hooks/use-current-boat';
 import { AttachmentList } from '@/shared/components/attachment-list';
+import { MarkdownRender } from '@/shared/components/markdown-render';
 import { PageHeader } from '@/shared/components/page-header';
 import { getCostCalculationString } from '../utils/cost';
 
@@ -37,14 +38,6 @@ const ShowIntervention = () => {
           <strong>{translate('interventions.form.labels.title')}: </strong>
           {intervention?.data.title}
         </Typography.Paragraph>
-        {intervention?.data.description ? (
-          <Typography.Paragraph>
-            <strong>
-              {translate('interventions.form.labels.description')}:
-            </strong>
-            {intervention.data.description}
-          </Typography.Paragraph>
-        ) : null}
         {intervention?.data.total_cost ? (
           <>
             <Typography.Paragraph style={{ marginBottom: 0 }}>
@@ -59,6 +52,14 @@ const ShowIntervention = () => {
                 translate,
               })}
             </Typography.Paragraph>
+          </>
+        ) : null}
+        {intervention?.data.description ? (
+          <>
+            <Typography.Title level={5}>
+              {translate('interventions.form.labels.description')}:
+            </Typography.Title>
+            <MarkdownRender content={intervention.data.description} />
           </>
         ) : null}
       </Card>
