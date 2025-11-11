@@ -4,6 +4,7 @@ import dayjs from 'dayjs';
 import type { FC } from 'react';
 
 import { BoatSystemSelect } from '@/boats/components/boat-system-select';
+import { MarkdownEditor } from '@/shared/components/markdown-editor';
 
 interface EquipmentFormProps {
   formProps: any;
@@ -58,7 +59,7 @@ const EquipmentForm: FC<EquipmentFormProps> = ({
         label={translate('equipments.form.labels.description')}
         name="description"
       >
-        <Input.TextArea rows={4} />
+        <MarkdownEditor />
       </Form.Item>
       <Form.Item
         label={translate('equipments.form.labels.warranty_end_date')}
