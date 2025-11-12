@@ -79,7 +79,17 @@
     }
   },
   "auth": {
-    "logout": "Logout"
+    "logout": "Logout",
+    "settings": {
+      "title": "Account Settings",
+      "language": {
+        "label": "Preferred language",
+        "list": {
+          "en": "English",
+          "fr": "French"
+        }
+      }
+    }
   },
   "boats": {
     "list": {
@@ -305,5 +315,8 @@
         }
       }
     }
+  },
+  "core": {
+    "settings": "Settings"
   }
 }
