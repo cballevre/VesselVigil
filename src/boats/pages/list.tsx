@@ -30,7 +30,7 @@ const ListBoat = () => {
             <Card hoverable style={{ textAlign: 'center' }}>
               <PlusOutlined style={{ fontSize: 24 }} />
               <span style={{ marginLeft: 16 }}>
-                {translate('ListBoat.add')}
+                {translate('boats.list.add')}
               </span>
             </Card>
           </Link>
