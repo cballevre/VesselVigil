@@ -3,6 +3,7 @@ import { Authenticated } from '@refinedev/core';
 import { Navigate, Outlet, Route, Routes } from 'react-router';
 
 import { Login } from '@/auth/pages/login';
+import { SettingsPage } from '@/auth/pages/settings';
 import { BoatLayout } from '@/boats/components/boat-layout';
 import { AddBoat } from '@/boats/pages/add';
 import { BoatDashboard } from '@/boats/pages/dashboard';
@@ -57,6 +58,7 @@ const AppRouter = () => {
             <Route path="access" element={<AccessSettings />} />
           </Route>
         </Route>
+        <Route path="/settings" element={<SettingsPage />} />
       </Route>
       <Route
         element={
